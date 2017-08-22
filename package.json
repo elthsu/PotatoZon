@@ -1,0 +1,27 @@
+{
+  "name": "potatozon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "PotatoZon.js",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "console.table": "^0.8.0",
+    "easy-table": "^1.1.0",
+    "inquirer": "^3.2.2",
+    "mysql": "^2.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elthsu/PotatoZon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elthsu/PotatoZon/issues"
+  },
+  "homepage": "https://github.com/elthsu/PotatoZon#readme"
+}
