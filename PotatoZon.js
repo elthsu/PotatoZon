@@ -37,13 +37,15 @@ var startApp = function() {
       customer(connection);
       break;
 
-      // case 'Manager':
-      // manager();
-      // break;
-      //
-      // case 'Supervisor':
-      // sup();
-      // break;
+      case 'Manager':
+      console.log("Function coming soon!")
+      startApp();
+      break;
+
+      case 'Supervisor':
+      console.log("Function coming soon!")
+      startApp();
+      break;
 
     }
 
@@ -52,3 +54,5 @@ var startApp = function() {
 
 
 }
+
+module.exports = startApp;

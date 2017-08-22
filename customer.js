@@ -1,4 +1,4 @@
-var manager = require('./PotatoZon');
+var start = require('./PotatoZon');
 var inquirer = require('inquirer');
 var Table = require('easy-table');
 var item = 0;
@@ -70,7 +70,7 @@ var customer = function(connection) {
               name: 'quantity',
               message: 'How many would you like to buy?',
               validate: function(value) {
-                if (isNaN(value) === false) {
+                if (isNaN(value) === false && value !== '0') {
                   return true;
                 }
                 return false;
@@ -99,29 +99,26 @@ var customer = function(connection) {
 
                     console.log("Thank you for your purchase! Your total is $" +
                       total);
+                      inquirer.prompt([{
+                        type: 'list',
+                        name: 'again',
+                        message: 'Would you like to buy something else?',
+                        choices: ['Yes', 'No']
+                      }]).then(function(ans3) {
+                        if (ans3.again === 'Yes') {
+                          customer(connection);
+                        } else {
+                          console.log("Please come again!");
+                          connection.end();
+                          process.exit();
+
+                        }
+                      })
                   } else {
 
-                    customer();
-
-                  }
-
-
-
-                inquirer.prompt([{
-                  type: 'list',
-                  name: 'again',
-                  message: 'Would you like to buy something else?',
-                  choices: ['Yes', 'No']
-                }]).then(function(ans3) {
-                  if (ans3.again === 'Yes') {
                     customer(connection);
-                  } else {
-                    console.log("Please come again!");
-                    connection.end();
-                    process.exit();
 
                   }
-                })
 
                   });
               } else {
