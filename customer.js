@@ -26,8 +26,11 @@ var customer = function(connection) {
       inquirer.prompt([{
         type: 'input',
         name: 'purchase',
-        message: 'What would you like to buy?',
+        message: 'What would you like to buy? Press "q" to Quit.',
         validate: function(value) {
+          if (value === "q") {
+            return true;
+          }
           if (isNaN(value) === false && value <= results.length && value > 0) {
             return true;
           }
@@ -35,6 +38,13 @@ var customer = function(connection) {
         }
 
       }]).then(function(ans) {
+
+        if (ans.purchase === "q") {
+
+          console.log("Please come again!");
+          connection.end();
+          process.exit();
+        }
 
         var purchase = ans.purchase - 1;
         item = parseInt(ans.purchase);
