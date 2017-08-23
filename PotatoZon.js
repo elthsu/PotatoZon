@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var inquirer = require("inquirer");
-var customer = require('./customer');
-var manager = require('./manager');
+var customer = require('./customer.js');
+var manager = require('./manager.js');
 var sup = require('./sup');
 
 
@@ -38,8 +38,7 @@ var startApp = function() {
       break;
 
       case 'Manager':
-      console.log("Function coming soon!")
-      startApp();
+      manager(connection);
       break;
 
       case 'Supervisor':
